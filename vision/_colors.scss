@@ -1,0 +1,25 @@
+// Loop similar to forEach loop
+@each $key, $val in $colors {
+  // use varialbe inside #{}
+  .text-#{$key} {
+    color: $val;
+  }
+
+  .bd-#{$key} {
+    background-color: $val;
+  }
+
+  // light variations
+  @for $i from 1 through 9 {
+    .text-#{$key}-light-#{$i} {
+      color: mix(
+        white,
+        $val,
+        $i * 10
+      ); // min val color with white with $i*10 percent
+    }
+    .bg-#{$key}-dark-#{$i} {
+      background-color: mix(black, $val, $i * 10);
+    }
+  }
+}
